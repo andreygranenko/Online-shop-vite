@@ -1,16 +1,13 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import {Button} from "react-bootstrap";
 import NavBar from "./components/nav-bar/NavBar.jsx";
+import MainExplore from "./components/main-explore/MainExplore.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
       <NavBar/>
+      <MainExplore/>
     </>
   )
 }
