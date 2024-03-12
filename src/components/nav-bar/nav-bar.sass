@@ -1,0 +1,47 @@
+@use '../../style-vars/vars' as v
+
+
+*
+  font-family: 'Roboto', sans-serif
+.logo
+  width: 56px
+  height: 63px
+nav
+  padding: 15px 0 16px 0
+  .row
+    align-items: center
+  .menu
+    list-style: none
+    display: flex
+    justify-content: space-between
+    padding: 13px 70px
+    margin-bottom: 0
+    &_item
+      padding-right: 28px
+      font-weight: 100
+      cursor: pointer
+      transition: .5s all
+      &:hover
+        color: v.$primary_color
+  .action_btns
+    display: flex
+    align-items: center
+    img
+      display: block
+      margin-right: 10px
+      width: 45px
+    #search
+      width: 28px
+
+    button
+      background-color: v.$second-color
+      border: none
+      color: white
+      width: 138px
+      height: 40px
+      border-radius: 5px
+      cursor: pointer
+
+hr
+  margin: 0
+  color: v.$second-color
