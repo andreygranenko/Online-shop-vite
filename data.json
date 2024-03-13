@@ -1,0 +1,19 @@
+{
+  "categories": [
+    {
+      "id":1,
+      "name":"Category 1",
+      "description":"This is the first category"
+    },
+    {
+      "id":2,
+      "name":"Category 2",
+      "description":"This is the second category"
+    },
+    {
+      "id":3,
+      "name":"Category 3",
+      "description":"This is the third category"
+    }
+  ]
+}

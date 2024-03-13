@@ -7,7 +7,7 @@ const MainExplore = () => {
       <section className="explore">
         <div className="item more_section">
           <h1>Tech Heim</h1>
-          <h3>&quot;Join the digital revolution&quot;</h3>
+          <h3>&quot;Join the <span className='primary'>digital revolution</span>&quot;</h3>
           <Button>
             Explore More
           </Button>

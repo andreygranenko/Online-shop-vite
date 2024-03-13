@@ -1,6 +1,7 @@
 import './App.css'
 import NavBar from "./components/nav-bar/NavBar.jsx";
 import MainExplore from "./components/main-explore/MainExplore.jsx";
+import Categories from "./components/categories/Categories.jsx";
 
 function App() {
 
@@ -8,6 +9,7 @@ function App() {
     <>
       <NavBar/>
       <MainExplore/>
+      <Categories/>
     </>
   )
 }
