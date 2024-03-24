@@ -2,17 +2,44 @@
   "categories": [
     {
       "id":1,
-      "name":"Category 1",
+      "title":"Smart watch",
+      "img" : "./src/assets/imgs/image.png",
+      "alt": "Smart watch",
       "description":"This is the first category"
     },
     {
       "id":2,
-      "name":"Category 2",
+      "title":"Gaming",
+      "img" : "./src/assets/imgs/image-1.png",
+      "alt": "Gaming",
       "description":"This is the second category"
     },
     {
       "id":3,
-      "name":"Category 3",
+      "title":"Smart Phone",
+      "img" : "./src/assets/imgs/image-2.png",
+      "alt": "Smart Phone",
+      "description":"This is the third category"
+    },
+    {
+      "id":4,
+      "title":"Laptop",
+      "img" : "./src/assets/imgs/image-3.png",
+      "alt": "Laptop",
+      "description":"This is the third category"
+    },
+    {
+      "id":5,
+      "title":"Camera",
+      "img" : "./src/assets/imgs/image-4.png",
+      "alt": "Camera",
+      "description":"This is the third category"
+    },
+    {
+      "id":6,
+      "title":"Accessories",
+      "img" : "./src/assets/imgs/image-5.png",
+      "alt": "Accessories",
       "description":"This is the third category"
     }
   ]

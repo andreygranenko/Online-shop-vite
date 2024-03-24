@@ -8,8 +8,9 @@ const initialState ={
 
 export const fetchCategories = createAsyncThunk(
   'categories/fetchCategories',
-  () => {
-    return axios.get("http://localhost:3001/categories");
+  async () => {
+    const data = await axios.get("http://localhost:3001/categories");
+    return data.data;
   }
 );
 
@@ -21,7 +22,8 @@ const categoriesSlice = createSlice({
     builder
       .addCase(fetchCategories.pending, (state) => { state.categoriesLoadingStatus = 'loading'})
       .addCase(fetchCategories.fulfilled, (state, action) => {
-        state.categories = action.payload.data;
+        console.log(action.payload);
+        state.categories = action.payload;
         state.categoriesLoadingStatus = 'idle';
       })
       .addCase(fetchCategories.rejected, (state) => { state.categoriesLoadingStatus = 'error'; })

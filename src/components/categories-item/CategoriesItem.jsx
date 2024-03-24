@@ -1,8 +1,10 @@
-const CategoriesItem = (props) => {
+import './categories-item.sass';
+
+const CategoriesItem = ({img, alt, title}) => {
   return (
-    <div className="categories_item">
-      <img src={props.img} alt={props.alt}/>
-      <h3>{props.title}</h3>
+    <div className="categories-item">
+      <img src={img} alt={alt}/>
+      <h3>{title}</h3>
     </div>
   )
 }
