@@ -4,6 +4,7 @@ import {fetchCategories} from "./categoriesSlice.jsx";
 import {store} from '../../store/index.jsx';
 import CategoriesItem from "../categories-item/CategoriesItem.jsx";
 import './categories.sass';
+import {Link} from "react-router-dom";
 
 const Categories = () => {
   const dispatch = useDispatch();
@@ -30,7 +31,11 @@ const Categories = () => {
     <div className={'container'}>
       <div className={'categories-wrap'}>
         {categories.map(({id, title, alt, img}) => {
-          return <CategoriesItem key={id} title={title} img={img} alt={alt}/>
+          return (
+            <Link key={id} to={`categorijas/${title}`}>
+              <CategoriesItem title={title} img={img} alt={alt}/>
+            </Link>
+          )
         })}
 
       </div>

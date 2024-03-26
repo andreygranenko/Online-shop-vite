@@ -9,12 +9,24 @@ import {store} from './store/index.jsx'
 }
 
 import {Provider} from "react-redux";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import Root from "./routes/root.jsx";
+import ErrorPage from "./components/pages/error-page/errorPage.jsx";
 
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Root/>,
+    errorElement: <ErrorPage/>,
+  },
+])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      {/*<App />*/}
+      <RouterProvider router={router} />
     </Provider>
   </React.StrictMode>,
 )
