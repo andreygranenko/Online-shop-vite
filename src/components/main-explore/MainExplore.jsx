@@ -9,7 +9,7 @@ const MainExplore = () => {
         <div className="item more_section">
           <h1>Vai tev to vajag?</h1>
           <h3>&quot;Apskati produktus un atbildi uz šo jautājumu <span className='primary'>pats</span>&quot;</h3>
-          <Link to={'/categorijas'}>
+          <Link to={'/produkti'}>
             <Button>
               Apskatīt
             </Button>

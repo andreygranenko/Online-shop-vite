@@ -30,9 +30,9 @@ const Categories = () => {
   return (
     <div className={'container'}>
       <div className={'categories-wrap'}>
-        {categories.map(({id, title, alt, img}) => {
+        {categories.map(({id, title, alt, img, route}) => {
           return (
-            <Link key={id} to={`categorijas/${title}`}>
+            <Link key={id} to={`categorijas/${route}`}>
               <CategoriesItem title={title} img={img} alt={alt}/>
             </Link>
           )

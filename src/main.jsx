@@ -12,6 +12,7 @@ import {Provider} from "react-redux";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Root from "./routes/root.jsx";
 import ErrorPage from "./components/pages/error-page/errorPage.jsx";
+import ProductsPageRoute from "./routes/ProductsPageRoute.jsx";
 
 
 const router = createBrowserRouter([
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
     element: <Root/>,
     errorElement: <ErrorPage/>,
   },
+  {
+    path: '/produkti',
+    element: <ProductsPageRoute/>
+  }
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
