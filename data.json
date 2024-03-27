@@ -48,5 +48,79 @@
       "route": "accessories",
       "description":"This is the third category"
     }
+  ],
+  "products-categories": [
+    {
+      "id":1,
+      "title":"Camera",
+      "img" : "./src/assets/imgs/products/camera.svg",
+      "alt": "Camera",
+      "route": "camera",
+      "description":"This is the first category"
+    },
+    {
+      "id":2,
+      "title":"Network",
+      "img" : "./src/assets/imgs/products/data.svg",
+      "alt": "Network",
+      "route": "network",
+      "description":"This is the second category"
+    },
+    {
+      "id":3,
+      "title":"Accessories",
+      "img" : "./src/assets/imgs/products/devices.svg",
+      "alt": "Accessories",
+      "route": "accessories",
+      "description":"This is the third category"
+    },
+    {
+      "id":4,
+      "title":"Gaming",
+      "img" : "./src/assets/imgs/products/game.svg",
+      "alt": "Gaming",
+      "route": "gaming",
+      "description":"This is the third category"
+    },
+    {
+      "id":5,
+      "title":"Audio",
+      "img" : "./src/assets/imgs/products/headphones.svg",
+      "alt": "Audio",
+      "route": "audio",
+      "description":"This is the third category"
+    },
+    {
+      "id":6,
+      "title":"Mobile",
+      "img" : "./src/assets/imgs/products/mobile.svg",
+      "alt": "Mobile",
+      "route": "mobile",
+      "description":"This is the third category"
+    },
+    {
+      "id":7,
+      "title": "Tablet",
+      "img": "./src/assets/imgs/products/mobile1.svg",
+      "alt": "Tablet",
+      "route": "tablet",
+      "description": "This is the third category"
+    },
+    {
+      "id":8,
+      "title": "Laptop",
+      "img": "./src/assets/imgs/products/monitor.svg",
+      "alt": "Laptop",
+      "route": "laptop",
+      "description": "This is the third category"
+    },
+    {
+      "id":9,
+      "title": "Wearable",
+      "img": "./src/assets/imgs/products/watch-status.svg",
+      "alt": "Wearable",
+      "route": "wearable",
+      "description": "This is the third category"
+    }
   ]
 }
