@@ -122,5 +122,39 @@
       "route": "wearable",
       "description": "This is the third category"
     }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "Apple MacBook Air 15\" w/ Touch ID (2023) - Space Grey (Apple M2 Chip / 256GB SSD / 8GB RAM) - French",
+      "price": 1999.99,
+      "img": "./src/assets/imgs/macbook-products/macbook1.png",
+      "alt": "Apple MacBook Air 15\" w/ Touch ID (2023) - Space Grey (Apple M2 Chip / 256GB SSD / 8GB RAM) - French",
+      "discount": false
+    },
+    {
+      "id": 2,
+      "title": "Apple MacBook Air 15\" w/ Touch ID (2023) - Space Grey (Apple M2 Chip / 256GB SSD / 8GB RAM) - French",
+      "price": 1999.99,
+      "img": "./src/assets/imgs/macbook-products/macbook2.png",
+      "alt": "Apple MacBook Air 15\" w/ Touch ID (2023) - Space Grey (Apple M2 Chip / 256GB SSD / 8GB RAM) - French",
+      "discount": false
+    },
+    {
+      "id": 3,
+      "title": "Apple MacBook Air 15\" w/ Touch ID (2023) - Space Grey (Apple M2 Chip / 256GB SSD / 8GB RAM) - French",
+      "price": 1999.99,
+      "img": "./src/assets/imgs/macbook-products/macbook3.png",
+      "alt": "Apple MacBook Air 15\" w/ Touch ID (2023) - Space Grey (Apple M2 Chip / 256GB SSD / 8GB RAM) - French",
+      "discount": false
+    },
+    {
+      "id": 4,
+      "title": "Apple MacBook Air 15\" w/ Touch ID (2023) - Space Grey (Apple M2 Chip / 256GB SSD / 8GB RAM) - French",
+      "price": 1999.99,
+      "img": "./src/assets/imgs/macbook-products/macbook4.png",
+      "alt": "Apple MacBook Air 15\" w/ Touch ID (2023) - Space Grey (Apple M2 Chip / 256GB SSD / 8GB RAM) - French",
+      "discount": false
+    }
   ]
 }

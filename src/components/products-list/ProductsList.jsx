@@ -1,15 +1,25 @@
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Link} from "react-router-dom";
 import './products-list.sass';
+import {useEffect} from "react";
+import {fetchProducts} from "./productsListSlice.jsx";
 const ProductsList = () => {
 
-  const categories = useSelector(state => state.categories.categories);
+  const products = useSelector(state => state.productsList.products);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
+
+  if (!products) {
+    return <h1>No products</h1>
+  }
 
   return (
     <div className={'products-wrap'}>
-      {categories.map(({id, title, alt, img, route}) => {
+      {products.map(({id, title, alt, img}) => {
         return (
-          <Link key={id} to={`categorijas/${route}`}>
+          <Link key={id} to={`categorijas/${title}`}>
             <div className="card" style={{"width": "13rem"}}>
               <img className="card-img-top" src={img} alt={alt}/>
                 <div className="card-body">
