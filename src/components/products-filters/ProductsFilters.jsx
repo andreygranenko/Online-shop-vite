@@ -1,13 +1,28 @@
 import {Field, Form, Formik} from "formik";
 import './products-filters.sass';
+import {useSelector} from "react-redux";
 
 
-const handleSubmit = (values) => {
 
-}
 const ProductsFilters = () => {
+  const products = useSelector(state => state.productsList.products);
 
-
+  const handleSubmit = (values) => {
+    products.filter(product => {
+      if (values.priceFrom && values.priceTo) {
+        return product.price >= values.priceFrom && product.price <= values.priceTo;
+      }
+      if (values.priceFrom) {
+        return product.price >= values.priceFrom;
+      }
+      if (values.priceTo) {
+        return product.price <= values.priceTo;
+      }
+      if (values.discount) {
+        return product.discount;
+      }
+    })
+  }
 
   return (
     <div >
@@ -19,7 +34,7 @@ const ProductsFilters = () => {
             priceTo: '',
             discount: false,
           }}
-          onSubmit={(values) =>  console.log(values)}>
+          onSubmit={handleSubmit}>
           <Form>
             <div id={'price'}>
               <h4>Price</h4>

@@ -23,7 +23,7 @@ const ProductsList = () => {
             <div className="card" style={{"width": "13rem"}}>
               <img className="card-img-top" src={img} alt={alt}/>
                 <div className="card-body">
-                  <h5 className="card-title">{title}</h5>
+                  <h5 className="card-title">{title.length > 20 ? title.slice(0, 28) + '...' : title}</h5>
                   <p className="card-text">Title.</p>
                   <a href="#" className="btn btn-primary">Add to cart </a>
                 </div>
