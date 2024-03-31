@@ -1,14 +1,16 @@
 import {Field, Form, Formik} from "formik";
 import './products-filters.sass';
 import {useSelector} from "react-redux";
+import axios from "axios";
 
 
 
 const ProductsFilters = () => {
   const products = useSelector(state => state.productsList.products);
 
-  const handleSubmit = (values) => {
-    products.filter(product => {
+  const handleSubmit =  async (values) => {
+    await fetch('http://localhost:3001/products').then(response => response.json()).then(data => console.log(data));
+    const filteredProducts = products.filter(product => {
       if (values.priceFrom && values.priceTo) {
         return product.price >= values.priceFrom && product.price <= values.priceTo;
       }
@@ -22,6 +24,12 @@ const ProductsFilters = () => {
         return product.discount;
       }
     })
+    console.log(filteredProducts);
+    for (const product of filteredProducts) {
+      await axios.put(`http://localhost:3001/products/${product.id}`, product);
+
+    }
+
   }
 
   return (

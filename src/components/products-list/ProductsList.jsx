@@ -19,16 +19,14 @@ const ProductsList = () => {
     <div className={'products-wrap'}>
       {products.map(({id, title, alt, img}) => {
         return (
-          <Link key={id} to={`categorijas/${title}`}>
-            <div className="card" style={{"width": "13rem"}}>
+            <div key={id} className="card" style={{"width": "13rem"}}>
               <img className="card-img-top" src={img} alt={alt}/>
                 <div className="card-body">
                   <h5 className="card-title">{title.length > 20 ? title.slice(0, 28) + '...' : title}</h5>
                   <p className="card-text">Title.</p>
-                  <a href="#" className="btn btn-primary">Add to cart </a>
+                  <Link to={`categorijas/${title}`} className="btn btn-primary">Add to cart </Link>
                 </div>
             </div>
-          </Link>
         )
       })}
     </div>
