@@ -15,13 +15,13 @@ const NavBar = () => {
             <ul className="menu col-md-6 offset-md-1">
               <li className=" menu_item"><Link to={'/'}>Home</Link> </li>
               <li className=" menu_item"><Link to={'/produkti'}>Products</Link> </li>
-              <li className=" menu_item">Blog</li>
-              <li className=" menu_item">FAQ</li>
-              <li className=" menu_item">Contact Us</li>
+              <li className=" menu_item"><Link to={'/blogs'}>Blog</Link></li>
+              <li className=" menu_item"><Link to={'/faq'}>FAQ</Link></li>
+              <li className=" menu_item"><Link to={'/kontakti'}>Contact Us</Link></li>
             </ul>
             <div className="action_btns col-md-3 offset-md-1">
               <a href="#"><img id={'search'} src={Search} className="action_img" alt="loop"/></a>
-              <a href="#"><img src={Basket} className="action_img" alt="basket"/></a>
+              <Link to={'/grozs'}><img src={Basket} className="action_img" alt="basket"/></Link>
               <button>
                 Login / Sign Up
               </button>
