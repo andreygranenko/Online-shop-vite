@@ -180,5 +180,37 @@
       "alt": "Apple MacBook Air 15\" w/ Touch ID (2023) - Space Grey (Apple M2 Chip / 256GB SSD / 8GB RAM) - French",
       "discount": false
     }
+  ],
+  "account_personal_data_icons": [
+    {
+      "id": 1,
+      "icon": "call",
+      "img": "./src/assets/imgs/account/personal_data/call.svg"
+    },
+    {
+      "id": 2,
+      "icon": "direct",
+      "img": "./src/assets/imgs/account/personal_data/direct.svg"
+    },
+    {
+      "id": 3,
+      "icon": "home",
+      "img": "./src/assets/imgs/account/personal_data/home.svg"
+    },
+    {
+      "id": 4,
+      "icon": "key",
+      "img": "./src/assets/imgs/account/personal_data/key.svg"
+    },
+    {
+      "id": 5,
+      "icon": "signpost",
+      "img": "./src/assets/imgs/account/personal_data/signpost.svg"
+    },
+    {
+      "id": 6,
+      "icon": "user",
+      "img": "./src/assets/imgs/account/personal_data/user.svg"
+    }
   ]
 }
