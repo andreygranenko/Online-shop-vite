@@ -22,7 +22,6 @@ const categoriesSlice = createSlice({
     builder
       .addCase(fetchCategories.pending, (state) => { state.categoriesLoadingStatus = 'loading'})
       .addCase(fetchCategories.fulfilled, (state, action) => {
-        console.log(action.payload);
         state.categories = action.payload;
         state.categoriesLoadingStatus = 'idle';
       })
@@ -35,4 +34,3 @@ const {actions, reducer} = categoriesSlice;
 
 export default reducer;
 
-console.log(actions);

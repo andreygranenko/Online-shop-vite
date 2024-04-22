@@ -10,11 +10,9 @@ const Categories = () => {
   const dispatch = useDispatch();
   const categories = useSelector(state => state.categories.categories);
   const categoriesLoadingStatus = useSelector(state => state.categories.categoriesLoadingStatus);
-  console.log(categories);
   useEffect(() => {
     dispatch(fetchCategories());
   }, []);
-  console.log(store.getState());
 
   if (categoriesLoadingStatus === 'loading') {
     return <h1>Loading...</h1>
