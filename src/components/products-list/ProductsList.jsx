@@ -1,8 +1,7 @@
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
 import './products-list.sass';
 import {useEffect, useState} from "react";
-import {fetchProducts} from "./productsListSlice.jsx";
 import {supabase} from "../../client.js";
 const ProductsList = () => {
 

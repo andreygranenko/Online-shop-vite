@@ -30,5 +30,5 @@ const productsListSlice = createSlice({
   }
 });
 
-const {actions, reducer} = productsListSlice;
+const { reducer} = productsListSlice;
 export default reducer;

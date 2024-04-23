@@ -1,7 +1,6 @@
 import {useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {fetchCategories} from "./categoriesSlice.jsx";
-import {store} from '../../store/index.jsx';
 import CategoriesItem from "../categories-item/CategoriesItem.jsx";
 import './categories.sass';
 import {Link} from "react-router-dom";
