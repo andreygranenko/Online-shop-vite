@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {supabase} from "./client.js";
+import {Link} from "react-router-dom";
 
 const SignUpForm = () => {
 
@@ -44,6 +45,7 @@ const SignUpForm = () => {
         <input onChange={handleChange} type="password" id="password" name="password" />
         <button type="submit">Sign Up</button>
       </form>
+      <h3>Already have an account? <Link to={'/login'}>Sing In</Link></h3>
     </>
 
   )

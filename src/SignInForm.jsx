@@ -1,9 +1,10 @@
 import {useState} from "react";
 import {supabase} from "./client.js";
+import {Link} from "react-router-dom";
 const SignInForm = () => {
   const [formData, setFormData] = useState({
-    email: formData.email,
-    password: formData.password
+    email: '',
+    password: ''
   });
 
   const handleChange = (e) => {
@@ -17,8 +18,8 @@ const SignInForm = () => {
     e.preventDefault();
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
-        email: 'example@email.com',
-        password: 'example-password',
+        email: formData.email,
+        password: formData.password,
       })
       if (error) {
         throw error;
@@ -37,6 +38,7 @@ const SignInForm = () => {
         <input onChange={handleChange} name={'password'} type="password" placeholder="Password" />
         <button type="submit">Sign In</button>
       </form>
+      <h3>Don&apos;t have an account? <Link to={'/register'}>Sign Up</Link> </h3>
     </>
   );
 }
