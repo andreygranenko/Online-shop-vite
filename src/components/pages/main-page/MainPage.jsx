@@ -6,6 +6,8 @@ import {supabase} from "../../../client.js";
 
 const MainPage = () => {
 
+
+
   const [products, setProducts] = useState([])
   async function fetchProducts() {
     const {data} = await supabase

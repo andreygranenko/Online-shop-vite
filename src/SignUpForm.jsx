@@ -19,6 +19,7 @@ const SignUpForm = () => {
       if (error) {
         throw error;
       }
+      console.log(data);
       alert("Check your email for the confirmation link")
     } catch (error) {
       alert(error.message);

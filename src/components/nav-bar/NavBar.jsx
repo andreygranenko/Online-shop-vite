@@ -22,9 +22,12 @@ const NavBar = () => {
             <div className="action_btns col-md-3 offset-md-1">
               <a href="#"><img id={'search'} src={Search} className="action_img" alt="loop"/></a>
               <Link to={'/grozs'}><img src={Basket} className="action_img" alt="basket"/></Link>
-              <button>
-                Login / Sign Up
-              </button>
+              <Link to={'/login'}>
+                <button>
+                  Log in / Sign Up
+                </button>
+              </Link>
+
             </div>
           </div>
         </div>
