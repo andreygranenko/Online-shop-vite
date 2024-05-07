@@ -1,13 +1,15 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {supabase} from "./client.js";
 import {Link, useNavigate} from "react-router-dom";
 // eslint-disable-next-line react/prop-types
-const SignInForm = ({setToken}) => {
+const SignInForm = ({setToken, token}) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
+
+
 
   const handleChange = (e) => {
     setFormData((prevFormData) => ({
@@ -26,7 +28,9 @@ const SignInForm = ({setToken}) => {
       if (error) {
         throw error;
       }
-      setToken(data);
+      console.log(data);
+      sessionStorage.setItem('token', JSON.stringify(data));
+      await setToken(data);
       navigate('/account');
     } catch (error) {
       alert(error.message);

@@ -11,46 +11,54 @@ import {store} from "./store/index.jsx";
 import Root from "./routes/root.jsx";
 
 function App() {
-  const [token, setToken] = useState(null);
+  const [session, setSession] = useState(null)
   const [router, setRouter] = useState(null);
 
+
   useEffect(() => {
-    const storedToken = sessionStorage.getItem('token');
-    if (storedToken) {
-      setToken(JSON.parse(storedToken));
-    }
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session)
+    })
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
   }, []);
 
   useEffect(() => {
-    if (token !== null) {
-      const newRouter = createBrowserRouter([
-        {
-          path: '/',
-          element: <Root/>,
-          errorElement: <ErrorPage/>,
-        },
-        {
-          path: '/produkti',
-          element: <ProductsPageRoute/>
-        },
-        {
-          path: '/login',
-          element: <SignInForm setToken={setToken}/>
-        },
-        {
-          path: '/register',
-          element: <SignUpForm/>
-        },
-        {
-          path: '/account',
-          element: token ? <Homepage token={token}/> : <Navigate to={'/login'}/>
-        }
-      ]);
-      setRouter(newRouter);
-    }
+
+    const newRouter = createBrowserRouter([
+      {
+        path: '/',
+        element: <Root/>,
+        errorElement: <ErrorPage/>,
+      },
+      {
+        path: '/produkti',
+        element: <ProductsPageRoute/>
+      },
+      {
+        path: '/login',
+        element: <SignInForm token={token} setToken={setToken}/>
+      },
+      {
+        path: '/register',
+        element: <SignUpForm/>
+      },
+      {
+        path: '/account',
+        element: <Homepage token={token}/>
+      }
+    ]);
+    setRouter(newRouter);
   }, [token]);
 
-  if (!router) return null;
+
+
+  if (!router)
+  {
+    return <h1>test</h1>
+  }
 
   return (
     <Provider store={store}>
