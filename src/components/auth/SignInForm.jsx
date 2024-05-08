@@ -1,6 +1,7 @@
 import {useState} from "react";
-import {supabase} from "./client.js";
+import {supabase} from "../../client.js";
 import {Link, useNavigate} from "react-router-dom";
+import NavBar from "../nav-bar/NavBar.jsx";
 // eslint-disable-next-line react/prop-types
 const SignInForm = ({setSession}) => {
   const navigate = useNavigate();
@@ -40,6 +41,7 @@ const SignInForm = ({setSession}) => {
 
   return (
     <>
+      <NavBar/>
       <h2>Log In</h2>
       <form onSubmit={handleSubmit}>
         <input onChange={handleChange} name={'email'} type="email" placeholder="Email" />

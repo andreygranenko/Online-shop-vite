@@ -3,13 +3,16 @@ import React, {useEffect, useState} from "react";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import ErrorPage from "./components/pages/error-page/errorPage.jsx";
 import ProductsPageRoute from "./routes/ProductsPageRoute.jsx";
-import SignInForm from "./SignInForm.jsx";
-import SignUpForm from "./SignUpForm.jsx";
+import SignInForm from "./components/auth/SignInForm.jsx";
+import SignUpForm from "./components/auth/SignUpForm.jsx";
 import Homepage from "./Homepage.jsx";
 import {Provider} from "react-redux";
 import {store} from "./store/index.jsx";
 import Root from "./routes/root.jsx";
 import {supabase} from './client.js';
+import BlogPage from "./components/pages/blog-page/BlogPage.jsx";
+import FaqPage from "./components/pages/faq-page/faqPage.jsx";
+import ContactPage from "./components/pages/contact-page/ContactPage.jsx";
 
 function App() {
   const [session, setSession] = useState(null)
@@ -51,6 +54,18 @@ function App() {
     {
       path: '/account',
       element: <Homepage setSession={setSession} session={session}/>
+    },
+    {
+      path: '/blogs',
+      element: <BlogPage/>
+    },
+    {
+      path: 'faq',
+      element: <FaqPage/>
+    },
+    {
+      path: 'kontakti',
+      element: <ContactPage/>
     }
   ]);
 

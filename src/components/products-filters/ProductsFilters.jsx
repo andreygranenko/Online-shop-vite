@@ -1,35 +1,33 @@
 import {Field, Form, Formik} from "formik";
 import './products-filters.sass';
-import {useSelector} from "react-redux";
-import axios from "axios";
+import {supabase} from "../../client";
 
 
+// eslint-disable-next-line react/prop-types
+const ProductsFilters = ({setProducts}) => {
+  // const products = useSelector(state => state.productsList.products);
+  const handleSubmit = async (values, { resetForm }) => {
+    let data, error;
 
-const ProductsFilters = () => {
-  const products = useSelector(state => state.productsList.products);
-
-  const handleSubmit =  async (values) => {
-    await fetch('http://localhost:3001/products').then(response => response.json());
-    const filteredProducts = products.filter(product => {
-      if (values.priceFrom && values.priceTo) {
-        return product.price >= values.priceFrom && product.price <= values.priceTo;
-      }
-      if (values.priceFrom) {
-        return product.price >= values.priceFrom;
-      }
-      if (values.priceTo) {
-        return product.price <= values.priceTo;
-      }
-      if (values.discount) {
-        return product.discount;
-      }
-    })
-    for (const product of filteredProducts) {
-      await axios.put(`http://localhost:3001/products/${product.id}`, product);
-
+    if (!values.priceFrom && !values.priceTo && !values.discount) {
+      ({ data, error } = await supabase.from('product').select());
+    } else {
+      ({ data, error } = await supabase
+        .from('product')
+        .select()
+        .gte('price', values.priceFrom ? values.priceFrom : 0)
+        .lte('price', values.priceTo ? values.priceTo : 9999)
+        .eq('discount', values.discount));
     }
 
-  }
+    if (error) {
+      console.log('error', error.message);
+      throw error;
+    }
+    setProducts(data);
+    resetForm();
+  };
+
 
   return (
     <div >

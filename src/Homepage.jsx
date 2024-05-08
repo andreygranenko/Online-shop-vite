@@ -1,5 +1,6 @@
 // eslint-disable-next-line react/prop-types
 import {Navigate} from "react-router-dom";
+import NavBar from "./components/nav-bar/NavBar.jsx";
 
 // eslint-disable-next-line react/prop-types
 const Homepage = ({session, setSession}) => {
@@ -19,8 +20,12 @@ const Homepage = ({session, setSession}) => {
   }
 
   return (
-    // eslint-disable-next-line react/prop-types
-    <h2>Hey {session.user.email}</h2>
+    <>
+      <NavBar/>
+      {/* eslint-disable-next-line react/prop-types */}
+      <h2>Hey {session.user.email}</h2>
+    </>
+
   )
 }
 

@@ -1,18 +1,15 @@
-import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
 import './products-list.sass';
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {supabase} from "../../client.js";
-const ProductsList = () => {
+// eslint-disable-next-line react/prop-types
+const ProductsList = ({products, setProducts}) => {
 
-  // const products = useSelector(state => state.productsList.products);
-  const dispatch = useDispatch();
   useEffect(() => {
     // dispatch(fetchProducts());
     productsFetch();
   }, []);
 
-  const [products, setProducts] = useState();
   const productsFetch = async () => {
     const {data} = await supabase
       .from('product')
@@ -34,7 +31,9 @@ const ProductsList = () => {
       {products.map(({id, title, alt, img_url}) => {
         return (
             <div key={id} className="card" style={{"width": "13rem"}}>
-              <img className="card-img-top" src={img_url} alt={alt}/>
+              <div className={'img-wrap'}>
+                <img className="card-img-top" src={img_url} alt={alt}/>
+              </div>
                 <div className="card-body">
                   <h5 className="card-title">{title.length > 20 ? title.slice(0, 28) + '...' : title}</h5>
                   <p className="card-text">Title.</p>

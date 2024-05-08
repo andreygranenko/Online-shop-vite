@@ -1,6 +1,7 @@
 import {useState} from "react";
-import {supabase} from "./client.js";
+import {supabase} from "../../client.js";
 import {Link} from "react-router-dom";
+import NavBar from "../nav-bar/NavBar.jsx";
 
 const SignUpForm = () => {
 
@@ -36,6 +37,7 @@ const SignUpForm = () => {
   console.log(formData);
   return (
     <>
+      <NavBar/>
       <h2>
         Sign Up
       </h2>
