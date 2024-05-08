@@ -1,8 +1,8 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {supabase} from "./client.js";
 import {Link, useNavigate} from "react-router-dom";
 // eslint-disable-next-line react/prop-types
-const SignInForm = ({setToken, token}) => {
+const SignInForm = ({setSession}) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
@@ -30,7 +30,7 @@ const SignInForm = ({setToken, token}) => {
       }
       console.log(data);
       sessionStorage.setItem('token', JSON.stringify(data));
-      await setToken(data);
+      await setSession(data);
       navigate('/account');
     } catch (error) {
       alert(error.message);
