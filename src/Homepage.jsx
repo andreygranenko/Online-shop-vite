@@ -1,10 +1,42 @@
 // eslint-disable-next-line react/prop-types
 import {Navigate} from "react-router-dom";
 import NavBar from "./components/nav-bar/NavBar.jsx";
-
+import {useEffect, useState} from "react";
+import {supabase} from './client.js';
 // eslint-disable-next-line react/prop-types
 const Homepage = ({session, setSession}) => {
-  console.log(session);
+  const [loading, setLoading] = useState(true);
+  const [email, setEmail] = useState(null);
+
+  useEffect(() => {
+    let ignore = false;
+    async function getProfile() {
+      setLoading(true);
+      const { user } = session;
+
+      const { data, error } = await supabase
+        .from('Users')
+        .select(`email`)
+        .eq('id', user.id)
+        .single();
+
+      if (!ignore) {
+        if (error) {
+          console.warn(error);
+        } else if (data) {
+          setEmail(data.email);
+        }
+      }
+
+      setLoading(false);
+    }
+
+    getProfile();
+
+    return () => {
+      ignore = true;
+    }
+  }, [session]);
 
   // eslint-disable-next-line react/prop-types
   if (!session || !session.user) {
@@ -23,7 +55,7 @@ const Homepage = ({session, setSession}) => {
     <>
       <NavBar/>
       {/* eslint-disable-next-line react/prop-types */}
-      <h2>Hey {session.user.email}</h2>
+      <h2>Heye {email}</h2>
     </>
 
   )

@@ -2,6 +2,7 @@ import {useState} from "react";
 import {supabase} from "../../client.js";
 import {Link, useNavigate} from "react-router-dom";
 import NavBar from "../nav-bar/NavBar.jsx";
+import './sign-in-form.sass';
 // eslint-disable-next-line react/prop-types
 const SignInForm = ({setSession}) => {
   const navigate = useNavigate();
@@ -42,13 +43,16 @@ const SignInForm = ({setSession}) => {
   return (
     <>
       <NavBar/>
-      <h2>Log In</h2>
-      <form onSubmit={handleSubmit}>
-        <input onChange={handleChange} name={'email'} type="email" placeholder="Email" />
-        <input onChange={handleChange} name={'password'} type="password" placeholder="Password" />
-        <button type="submit">Sign In</button>
-      </form>
-      <h3>Don&apos;t have an account? <Link to={'/register'}>Sign Up</Link> </h3>
+      <div className="container login-form">
+        <h2>Log in to <span>VMTG</span></h2>
+        <form onSubmit={handleSubmit}>
+          <input onChange={handleChange} name={'email'} type="email" placeholder="Email" />
+          <input onChange={handleChange} name={'password'} type="password" placeholder="Password" />
+          <button className={'btn btn-primary'} type="submit">Sign In</button>
+        </form>
+        <h3>Don&apos;t have an account? <Link to={'/register'}>Sign Up</Link> </h3>
+      </div>
+
     </>
   );
 }

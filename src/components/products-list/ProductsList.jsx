@@ -28,7 +28,7 @@ const ProductsList = ({products, setProducts}) => {
 
   return (
     <div className={'products-wrap'}>
-      {products.map(({id, title, alt, img_url}) => {
+      {products.map(({id, title, alt, price, img_url}) => {
         return (
             <div key={id} className="card" style={{"width": "13rem"}}>
               <div className={'img-wrap'}>
@@ -36,7 +36,7 @@ const ProductsList = ({products, setProducts}) => {
               </div>
                 <div className="card-body">
                   <h5 className="card-title">{title.length > 20 ? title.slice(0, 28) + '...' : title}</h5>
-                  <p className="card-text">Title.</p>
+                  <p className="card-text">{price}$</p>
                   <Link to={`categorijas/${title}`} className="btn btn-primary">Add to cart </Link>
                 </div>
             </div>

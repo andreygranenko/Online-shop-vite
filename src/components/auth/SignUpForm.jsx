@@ -2,6 +2,7 @@ import {useState} from "react";
 import {supabase} from "../../client.js";
 import {Link} from "react-router-dom";
 import NavBar from "../nav-bar/NavBar.jsx";
+import './sign-up-form.sass';
 
 const SignUpForm = () => {
 
@@ -38,17 +39,17 @@ const SignUpForm = () => {
   return (
     <>
       <NavBar/>
-      <h2>
-        Sign Up
-      </h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
-        <input onChange={handleChange} type="email" id="email" name="email" />
-        <label htmlFor="password">Password</label>
-        <input onChange={handleChange} type="password" id="password" name="password" />
-        <button type="submit">Sign Up</button>
-      </form>
-      <h3>Already have an account? <Link to={'/login'}>Sing In</Link></h3>
+      <div className="container signup-form">
+        <h2>
+          Create your account
+        </h2>
+        <form onSubmit={handleSubmit}>
+          <input placeholder={'Email'} onChange={handleChange} type="email" id="email" name="email" />
+          <input placeholder={'Password'} onChange={handleChange} type="password" id="password" name="password" />
+          <button className={'btn btn-primary'} type="submit">Login</button>
+        </form>
+        <h3>Already have an account? <Link to={'/login'}>Login</Link></h3>
+      </div>
     </>
 
   )
