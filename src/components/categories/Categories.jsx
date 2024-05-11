@@ -4,6 +4,7 @@ import {fetchCategories} from "./categoriesSlice.jsx";
 import CategoriesItem from "../categories-item/CategoriesItem.jsx";
 import './categories.sass';
 import {Link} from "react-router-dom";
+import {motion} from "framer-motion";
 
 const Categories = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,12 @@ const Categories = () => {
   }
 
   return (
-    <div className={'container'}>
+    <motion.div
+      className={'container'}
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+    >
       <div className={'categories-wrap'}>
         {categories.map(({id, title, alt, img, route}) => {
           return (
@@ -36,7 +42,7 @@ const Categories = () => {
         })}
 
       </div>
-    </div>
+    </motion.div>
   );
 }
 
