@@ -1,9 +1,7 @@
-import NavBar from "../../nav-bar/NavBar.jsx";
 import MainExplore from "../../main-explore/MainExplore.jsx";
 import Categories from "../../categories/Categories.jsx";
 import {useEffect, useState} from "react";
 import {supabase} from "../../../client.js";
-import {motion} from "framer-motion";
 
 const MainPage = () => {
 
@@ -24,7 +22,6 @@ const MainPage = () => {
 
   return (
     <>
-      <NavBar/>
       <MainExplore/>
       <Categories/>
     </>

@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {supabase} from "../../client.js";
 import {Link, useNavigate} from "react-router-dom";
-import NavBar from "../nav-bar/NavBar.jsx";
+import {motion} from "framer-motion";
 import './sign-in-form.sass';
 // eslint-disable-next-line react/prop-types
 const SignInForm = ({setSession}) => {
@@ -42,8 +42,12 @@ const SignInForm = ({setSession}) => {
 
   return (
     <>
-      <NavBar/>
-      <div className="container login-form">
+      <motion.div
+        className="container login-form"
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}
+      >
         <h2>Log in to <span>VMTG</span></h2>
         <form onSubmit={handleSubmit}>
           <input onChange={handleChange} name={'email'} type="email" placeholder="Email" />
@@ -51,7 +55,7 @@ const SignInForm = ({setSession}) => {
           <button className={'btn btn-primary'} type="submit">Sign In</button>
         </form>
         <h3>Don&apos;t have an account? <Link to={'/register'}>Sign Up</Link> </h3>
-      </div>
+      </motion.div>
 
     </>
   );

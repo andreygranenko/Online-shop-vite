@@ -1,10 +1,8 @@
-import NavBar from "../../nav-bar/NavBar.jsx";
 import {motion} from "framer-motion";
 
 const ContactPage = () => {
   return (
     <>
-      <NavBar/>
       <motion.div
         className={'container'}
         initial={{opacity: 0}}

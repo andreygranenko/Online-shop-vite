@@ -1,6 +1,6 @@
 import './App.css'
 import React, {useEffect, useState} from "react";
-import {createBrowserRouter, Route, BrowserRouter as Router, RouterProvider, Routes} from "react-router-dom";
+import {createBrowserRouter,  BrowserRouter as Router, RouterProvider, Routes} from "react-router-dom";
 import ErrorPage from "./components/pages/error-page/errorPage.jsx";
 import ProductsPageRoute from "./routes/ProductsPageRoute.jsx";
 import SignInForm from "./components/auth/SignInForm.jsx";
@@ -14,6 +14,7 @@ import BlogPage from "./components/pages/blog-page/BlogPage.jsx";
 import FaqPage from "./components/pages/faq-page/faqPage.jsx";
 import ContactPage from "./components/pages/contact-page/ContactPage.jsx";
 import AnimatedRoutes from "./components/animated-routes/AnimatedRoutes.jsx";
+import Navbar from "./components/nav-bar/NavBar.jsx";
 
 function App() {
   const [session, setSession] = useState(null)
@@ -74,6 +75,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router >
+        <Navbar/>
         <AnimatedRoutes session={session} setSession={setSession}/>
       </Router>
       {/*<RouterProvider router={router} />*/}

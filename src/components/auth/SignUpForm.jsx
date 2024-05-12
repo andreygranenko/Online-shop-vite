@@ -1,7 +1,6 @@
 import {useState} from "react";
 import {supabase} from "../../client.js";
 import {Link} from "react-router-dom";
-import NavBar from "../nav-bar/NavBar.jsx";
 import './sign-up-form.sass';
 
 const SignUpForm = () => {
@@ -38,7 +37,6 @@ const SignUpForm = () => {
   console.log(formData);
   return (
     <>
-      <NavBar/>
       <div className="container signup-form">
         <h2>
           Create your account

@@ -1,9 +1,7 @@
-import NavBar from "../../nav-bar/NavBar.jsx";
 import {motion} from "framer-motion";
 const BlogPage = () => {
   return (
     <>
-      <NavBar/>
       <motion.div
         className={'container'}
         initial={{opacity: 0}}
