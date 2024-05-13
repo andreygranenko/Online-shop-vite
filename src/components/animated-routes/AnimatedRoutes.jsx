@@ -4,7 +4,7 @@ import ErrorPage from "../pages/error-page/errorPage.jsx";
 import ProductsPageRoute from "../../routes/ProductsPageRoute.jsx";
 import SignInForm from "../auth/SignInForm.jsx";
 import SignUpForm from "../auth/SignUpForm.jsx";
-import Homepage from "../../Homepage.jsx";
+import Homepage from "../pages/home-page/Homepage.jsx";
 import BlogPage from "../pages/blog-page/BlogPage.jsx";
 import FaqPage from "../pages/faq-page/faqPage.jsx";
 import ContactPage from "../pages/contact-page/ContactPage.jsx";
