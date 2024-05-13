@@ -11,26 +11,29 @@ const Homepage = ({session, setSession}) => {
     let ignore = false;
     async function getProfile() {
       setLoading(true);
+      // eslint-disable-next-line react/prop-types
       const { user } = session;
 
       const { data, error } = await supabase
-        .from('Users')
-        .select(`email`)
+        .from('profiles')
+        .select(`username`)
         .eq('id', user.id)
         .single();
+
 
       if (!ignore) {
         if (error) {
           console.warn(error);
         } else if (data) {
-          setEmail(data.email);
+          setEmail(data.username);
         }
       }
 
       setLoading(false);
     }
 
-    getProfile();
+    if (session) getProfile();
+
 
     return () => {
       ignore = true;
@@ -54,7 +57,7 @@ const Homepage = ({session, setSession}) => {
   return (
     <>
       {/* eslint-disable-next-line react/prop-types */}
-      <h2>Heye {email}</h2>
+      <h2>Hey {email}</h2>
     </>
 
   )
