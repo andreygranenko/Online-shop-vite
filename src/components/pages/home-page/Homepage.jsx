@@ -22,6 +22,7 @@ const Homepage = ({session, setSession}) => {
       const { data, error } = await supabase
         .from('profiles')
         .select(`username, avatar_url, website, full_name`)
+        // eslint-disable-next-line react/prop-types
         .eq('id', user.id)
         .single();
 
@@ -68,6 +69,7 @@ const Homepage = ({session, setSession}) => {
     const { user } = session;
 
     const updates = {
+      // eslint-disable-next-line react/prop-types
       id: user.id,
       username: email,
       full_name: username,
@@ -75,6 +77,8 @@ const Homepage = ({session, setSession}) => {
     };
 
     const { error } = await supabase.from('profiles').upsert(updates);
+
+
 
     if (error) {
       alert(error.message);
@@ -86,6 +90,7 @@ const Homepage = ({session, setSession}) => {
 
   return (
     <>
+      {loading ? <h2>Loading</h2> : null}
       {/* eslint-disable-next-line react/prop-types */}
       <motion.div
         className={'account-info container'}
