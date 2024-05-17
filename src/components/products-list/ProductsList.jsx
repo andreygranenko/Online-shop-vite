@@ -2,6 +2,7 @@ import {Link} from "react-router-dom";
 import './products-list.sass';
 import {useEffect} from "react";
 import {supabase} from "../../client.js";
+
 // eslint-disable-next-line react/prop-types
 const ProductsList = ({products, setProducts}) => {
 

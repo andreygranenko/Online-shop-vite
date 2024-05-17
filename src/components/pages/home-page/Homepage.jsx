@@ -88,6 +88,15 @@ const Homepage = ({session, setSession}) => {
     setLoading(false);
   }
 
+  const onSignOut = async () => {
+    const { error } = await supabase.auth.signOut()
+    setSession(null);
+    sessionStorage.removeItem('token');
+    if (error) {
+      console.error('Sign out error', error)
+    }
+  }
+
   return (
     <>
       {loading ? <h2>Loading</h2> : null}
@@ -144,6 +153,7 @@ const Homepage = ({session, setSession}) => {
           <button className="update btn btn-primary">Update</button>
 
         </form>
+        <button onClick={onSignOut} className="sign-out btn btn-danger">Sign out</button>
 
         {/*<h2>Hey {email}</h2>*/}
       </motion.div>
