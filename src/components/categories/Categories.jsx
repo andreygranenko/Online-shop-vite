@@ -1,18 +1,32 @@
-import {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {fetchCategories} from "./categoriesSlice.jsx";
+import {useEffect, useState} from "react";
 import CategoriesItem from "../categories-item/CategoriesItem.jsx";
 import './categories.sass';
 import {Link} from "react-router-dom";
 import {motion} from "framer-motion";
-
+import {supabase} from "../../client.js";
 const Categories = () => {
-  const dispatch = useDispatch();
-  const categories = useSelector(state => state.categories.categories);
-  const categoriesLoadingStatus = useSelector(state => state.categories.categoriesLoadingStatus);
+
+  const [categories, setCategories] = useState(null)
+  const [categoriesLoadingStatus, setCategoriesLoadingStatus] = useState('loading')
+
+
   useEffect(() => {
-    dispatch(fetchCategories());
+    categoriesFetch();
   }, []);
+
+  const categoriesFetch = async () => {
+    const {data, error} = await supabase
+      .from('categories')
+      .select()
+    setCategories(data)
+    if (error) {
+      setCategoriesLoadingStatus('error')
+    }
+    setCategoriesLoadingStatus('success')
+    console.log("data:", data)
+  }
+
+
 
   if (categoriesLoadingStatus === 'loading') {
     return <h1>Loading...</h1>
@@ -35,7 +49,7 @@ const Categories = () => {
       <div className={'categories-wrap'}>
         {categories.map(({id, title, alt, img, route}) => {
           return (
-            <Link key={id} to={`categorijas/${route}`}>
+            <Link key={id} to={`kategorijas/${route}`}>
               <CategoriesItem title={title} img={img} alt={alt}/>
             </Link>
           )
