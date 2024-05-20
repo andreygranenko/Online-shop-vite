@@ -40,17 +40,17 @@ const ProductsFilters = ({setProducts}) => {
             discount: false,
           }}
           onSubmit={handleSubmit}>
-          <Form>
+          <Form className={''}>
             <div id={'price'}>
-              <h4>Price</h4>
+              <h4 className={'py-5'}>Price</h4>
               <div className={'price-input-wrap'}>
-                <Field placeholder={'min.'} type={'text'} name={'priceFrom'}/>
-                <Field placeholder={'max.'} type={'text'} name={'priceTo'}/>
+                <Field className={'input input-bordered'} placeholder={'min.'} type={'text'} name={'priceFrom'}/>
+                <Field className={'input input-bordered'} placeholder={'max.'} type={'text'} name={'priceTo'}/>
               </div>
             </div>
-            <div id={'discount'}>
+            <div className={'my-2'} id={'discount'}>
               <h4>Discount</h4>
-              <Field type={'checkbox'} name={'discount'} />
+              <Field className={'checkbox'} type={'checkbox'} name={'discount'} />
             </div>
             <button className={'btn btn-primary'} type={'submit'}>Filter</button>
           </Form>

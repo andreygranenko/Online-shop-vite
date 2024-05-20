@@ -70,7 +70,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router >
-        <Navbar/>
+        <Navbar session={session}/>
         <AnimatedRoutes session={session} setSession={setSession}/>
       </Router>
       {/*<RouterProvider router={router} />*/}

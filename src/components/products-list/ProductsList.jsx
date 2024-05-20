@@ -31,16 +31,26 @@ const ProductsList = ({products, setProducts}) => {
     <div className={'products-wrap'}>
       {products.map(({id, title, alt, price, img_url}) => {
         return (
-            <div key={id} className="card" style={{"width": "13rem"}}>
-              <div className={'img-wrap'}>
-                <img className="card-img-top" src={img_url} alt={alt}/>
+          <div key={id} className="card card-compact w-60 bg-base-100 shadow-xl">
+            <figure><img src={img_url} alt={alt} /></figure>
+            <div className="card-body">
+              <h2 className="card-title">{title}</h2>
+              <p>{price}$</p>
+              <div className="card-actions justify-end">
+                <Link to={`categorijas/${title}`}><button className="btn btn-primary">Buy Now</button></Link>
               </div>
-                <div className="card-body">
-                  <h5 className="card-title">{title.length > 20 ? title.slice(0, 28) + '...' : title}</h5>
-                  <p className="card-text">{price}$</p>
-                  <Link to={`categorijas/${title}`} className="btn btn-primary">Add to cart </Link>
-                </div>
             </div>
+          </div>
+            // <div key={id} className="card" style={{"width": "13rem"}}>
+            //   <div className={'img-wrap'}>
+            //     <img className="card-img-top" src={img_url} alt={alt}/>
+            //   </div>
+            //     <div className="card-body">
+            //       <h5 className="card-title">{title.length > 20 ? title.slice(0, 28) + '...' : title}</h5>
+            //       <p className="card-text">{price}$</p>
+            //       <Link to={`categorijas/${title}`} className="btn btn-primary">Add to cart </Link>
+            //     </div>
+            // </div>
         )
       })}
     </div>
