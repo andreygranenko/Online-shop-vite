@@ -41,16 +41,6 @@ const ProductsList = ({products, setProducts}) => {
               </div>
             </div>
           </div>
-            // <div key={id} className="card" style={{"width": "13rem"}}>
-            //   <div className={'img-wrap'}>
-            //     <img className="card-img-top" src={img_url} alt={alt}/>
-            //   </div>
-            //     <div className="card-body">
-            //       <h5 className="card-title">{title.length > 20 ? title.slice(0, 28) + '...' : title}</h5>
-            //       <p className="card-text">{price}$</p>
-            //       <Link to={`categorijas/${title}`} className="btn btn-primary">Add to cart </Link>
-            //     </div>
-            // </div>
         )
       })}
     </div>

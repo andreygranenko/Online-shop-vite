@@ -8,6 +8,7 @@ import {supabase} from './client.js';
 
 import AnimatedRoutes from "./components/animated-routes/AnimatedRoutes.jsx";
 import Navbar from "./components/nav-bar/NavBar.jsx";
+import Footer from "./components/footer/Footer.jsx";
 
 function App() {
   const [session, setSession] = useState(null)
@@ -72,6 +73,7 @@ function App() {
       <Router >
         <Navbar session={session}/>
         <AnimatedRoutes session={session} setSession={setSession}/>
+        <Footer/>
       </Router>
       {/*<RouterProvider router={router} />*/}
     </Provider>

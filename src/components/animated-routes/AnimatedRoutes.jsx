@@ -25,6 +25,7 @@ const AnimatedRoutes = ({session, setSession}) => {
         <Route path="/blogs" element={<BlogPage/>}/>
         <Route path="/faq" element={<FaqPage/>}/>
         <Route path="/kontakti" element={<ContactPage/>}/>
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </AnimatePresence>
   )

@@ -14,6 +14,7 @@ const ErrorPage = () => {
         exit={{opacity: 0}}
       >
         Chill out! {error.message}
+
       </motion.div>
     </>
 
