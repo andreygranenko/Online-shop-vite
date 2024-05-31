@@ -1,8 +1,19 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import './nav-bar.sass';
+import {supabase} from "../../client.js";
 
-const NavBar = ({ session }) => {
+const NavBar = ({ session , setSession}) => {
+
+  const onSignOut = async () => {
+    const { error } = await supabase.auth.signOut()
+    setSession(null);
+    sessionStorage.removeItem('token');
+    if (error) {
+      console.error('Sign out error', error)
+    }
+  }
+
   return (
     <>
       <div className="px-10 navbar bg-base-100">
@@ -56,7 +67,7 @@ const NavBar = ({ session }) => {
                   </a>
                 </li>
                 <li><Link to={'/account'}>Settings</Link></li>
-                <li><a>Logout</a></li>
+                <li onClick={onSignOut}><a>Logout</a></li>
               </ul>
             </div>
           ) : (

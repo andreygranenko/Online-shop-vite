@@ -71,7 +71,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router >
-        <Navbar session={session}/>
+        <Navbar setSession={setSession} session={session}/>
         <AnimatedRoutes session={session} setSession={setSession}/>
         <Footer/>
       </Router>
