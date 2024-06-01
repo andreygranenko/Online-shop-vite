@@ -29,12 +29,16 @@ const ProductsList = ({products, setProducts}) => {
 
   return (
     <div className={'products-wrap'}>
-      {products.map(({id, title, alt, price, img_url}) => {
+      {/* eslint-disable-next-line react/prop-types */}
+      {products.map(({id, title, alt, price, img_url, discount}) => {
         return (
           <div key={id} className="card card-compact w-60 bg-base-100 shadow-xl">
             <figure><img src={img_url} alt={alt} /></figure>
             <div className="card-body">
-              <h2 className="card-title">{title}</h2>
+              <h2 className="card-title">
+                {title}
+                {discount ? <div className="badge badge-secondary">SALE</div> : null}
+              </h2>
               <p>{price}$</p>
               <div className="card-actions justify-end">
                 <Link to={`categorijas/${title}`}><button className="btn btn-primary">Buy Now</button></Link>
