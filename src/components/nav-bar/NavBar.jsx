@@ -56,7 +56,7 @@ const NavBar = ({ session , setSession}) => {
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img alt="User Avatar" src={session.user?.user_metadata?.avatar_url || 'https://media.licdn.com/dms/image/D4D35AQGFRGgXtXKs3w/profile-framedphoto-shrink_800_800/0/1712236840783?e=1716836400&v=beta&t=Ttb5s_b1BDfww_kl_miX81bQQ-EgYnfzBwd67b-JTLE'} />
+                  <img alt="User Avatar" src={session.user?.user_metadata?.avatar_url || 'https://media.licdn.com/dms/image/D4D03AQHyO_c6pTEoCA/profile-displayphoto-shrink_800_800/0/1717090015911?e=1723075200&v=beta&t=gXDXrIhZ5__6pWzE7M6rjBHGNfWZo13alNPwxee39vs'} />
                 </div>
               </div>
               <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
