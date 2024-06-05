@@ -45,6 +45,7 @@ const BlogPage = () => {
         animate={{opacity: 1}}
         exit={{opacity: 0}}
       >
+        <h2 className={'text-xl font-bold my-3'}>Latest posts</h2>
         <div className="my-8 grid grid-cols-3 gap-4">
           <div style={{height: '1000px'}} className="col-span-2 grid grid-cols-2 gap-4">
             {blogs && blogs.map(({id, title, date_posted, min_read, img_url, description}) => {

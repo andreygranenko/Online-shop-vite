@@ -7,7 +7,7 @@ const MainPage = () => {
 
 
 
-  const [products, setProducts] = useState([])
+  const [ setProducts] = useState([])
   async function fetchProducts() {
     const {data} = await supabase
       .from('product')
