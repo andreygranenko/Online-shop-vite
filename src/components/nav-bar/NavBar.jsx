@@ -61,10 +61,10 @@ const NavBar = ({ session , setSession}) => {
               </div>
               <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
                 <li>
-                  <a className="justify-between">
+                  <Link to={'/account'} className="justify-between">
                     Profile
                     <span className="badge">New</span>
-                  </a>
+                  </Link>
                 </li>
                 <li><Link to={'/account'}>Settings</Link></li>
                 <li onClick={onSignOut}><a>Logout</a></li>
