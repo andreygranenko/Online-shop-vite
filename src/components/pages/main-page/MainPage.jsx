@@ -2,6 +2,7 @@ import MainExplore from "../../main-explore/MainExplore.jsx";
 import Categories from "../../categories/Categories.jsx";
 import {useEffect, useState} from "react";
 import {supabase} from "../../../client.js";
+import AnnotationViewer from "../../../AnnotationViewer.jsx";
 
 const MainPage = () => {
 
@@ -24,7 +25,7 @@ const MainPage = () => {
     <>
       <MainExplore/>
       <Categories/>
-
+      <AnnotationViewer/>
     </>
   )
 }
