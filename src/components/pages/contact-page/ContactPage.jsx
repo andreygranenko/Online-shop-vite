@@ -1,5 +1,7 @@
 import {motion} from "framer-motion";
-
+import LocationIcon from "../../../assets/icons/location-add.svg";
+import callIcon from "../../../assets/icons/call-incoming.svg";
+import smsIcon from "../../../assets/icons/sms.svg";
 const ContactPage = () => {
   return (
     <>
@@ -10,6 +12,23 @@ const ContactPage = () => {
         exit={{opacity: 0}}
       >
         <h2>Contact Page</h2>
+        <div className={'flex justify-evenly'}>
+          <div className={'md:w-40 w-2/6 flex flex-col justify-center items-center'}>
+            <img className={'w-12 h-12'} src={LocationIcon} alt="location icon"/>
+            <p className={'font-bold'}>Office</p>
+            <p className={'text-center font-thin text-sm'}>123 Main Street, Anytown,USA</p>
+          </div>
+          <div className={'md:w-40 w-2/6 flex flex-col justify-center items-center'}>
+            <img className={'w-12 h-12'} src={smsIcon} alt="sms icon"/>
+            <p className={'font-bold'}>Email</p>
+            <p className={'text-center font-thin text-sm'}>test@gmail.com</p>
+          </div>
+          <div className={'md:w-40 w-2/6 flex flex-col justify-center items-center'}>
+            <img className={'w-12 h-12'} src={callIcon} alt="call icon"/>
+            <p className={'font-bold'}>Phone</p>
+            <p className={'text-center font-thin text-sm'}>+1 (555) 123-4567</p>
+          </div>
+        </div>
       </motion.div>
     </>
   )
