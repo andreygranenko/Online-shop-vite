@@ -1,4 +1,4 @@
-# Online Shop React Vite
+# Online Shop React 
 
 This project is an online shop built with React and Vite. It provides a user-friendly interface for customers to browse and purchase products. The application includes several pages such as a homepage, product page, blog page, FAQ page, and contact page. It also includes user authentication with sign-in and sign-up forms.
 
