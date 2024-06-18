@@ -1,5 +1,6 @@
 import {motion} from "framer-motion";
 import './faq-page.sass';
+
 const FaqPage = () => {
   return (
     <>
@@ -14,15 +15,15 @@ const FaqPage = () => {
           <aside className={'py-3'}>
             Table of Contents
             <ul>
-              <li><a href="#">General</a></li>
-              <li><a href="#">Trusts & Safety</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Billing</a></li>
+              <li><a href="#general">General</a></li>
+              <li><a href="#trusts-safety">Trusts & Safety</a></li>
+              <li><a href="#services">Services</a></li>
+              <li><a href="#billing">Billing</a></li>
             </ul>
           </aside>
 
           <div className="container questions py-3">
-            <div className="collapse collapse-arrow ">
+            <div id="general" className="collapse collapse-arrow ">
               <input type="radio" name="my-accordion-2" defaultChecked />
               <div className="collapse-title text-xl font-medium">
                 Can I purchase products from Tech Heim using installment payments?
@@ -33,7 +34,7 @@ const FaqPage = () => {
               </div>
             </div>
             <hr/>
-            <div className="collapse collapse-arrow ">
+            <div id="trusts-safety" className="collapse collapse-arrow ">
               <input type="radio" name="my-accordion-2" />
               <div className="collapse-title text-xl font-medium">
                 How can I engage with the magazine content on Tech Heim?
@@ -44,7 +45,7 @@ const FaqPage = () => {
             </div>
             <hr/>
 
-            <div className="collapse collapse-arrow ">
+            <div id="services" className="collapse collapse-arrow ">
               <input type="radio" name="my-accordion-2" />
               <div className="collapse-title text-xl font-medium">
                 Does Tech Heim offer a warranty on its products?
@@ -55,7 +56,7 @@ const FaqPage = () => {
             </div>
             <hr/>
 
-            <div className="collapse collapse-arrow ">
+            <div id="billing" className="collapse collapse-arrow ">
               <input type="radio" name="my-accordion-2" />
               <div className="collapse-title text-xl font-medium">
                 Is Tech Heim a secure platform for online shopping?
@@ -66,7 +67,7 @@ const FaqPage = () => {
             </div>
             <hr/>
 
-            <div className="collapse collapse-arrow ">
+            <div id="assistance" className="collapse collapse-arrow ">
               <input type="radio" name="my-accordion-2" />
               <div className="collapse-title text-xl font-medium">
                 How can I get assistance with my purchase or any other inquiries?
