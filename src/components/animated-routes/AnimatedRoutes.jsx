@@ -10,6 +10,7 @@ import FaqPage from "../pages/faq-page/faqPage.jsx";
 import ContactPage from "../pages/contact-page/ContactPage.jsx";
 import React from "react";
 import {AnimatePresence} from "framer-motion";
+import SingleBlogPage from "../pages/single-blog-page/SingleBlogPage.jsx";
 
 // eslint-disable-next-line react/prop-types
 const AnimatedRoutes = ({session, setSession}) => {
@@ -23,6 +24,7 @@ const AnimatedRoutes = ({session, setSession}) => {
         <Route path="/register" element={<SignUpForm/>}/>
         <Route path="/account" element={<Homepage setSession={setSession} session={session}/>}/>
         <Route path="/blogs" element={<BlogPage/>}/>
+        <Route path="/blogs/:blogId" element={<SingleBlogPage/>}/>
         <Route path="/faq" element={<FaqPage/>}/>
         <Route path="/kontakti" element={<ContactPage/>}/>
         <Route path="*" element={<ErrorPage />} />

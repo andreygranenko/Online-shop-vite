@@ -3,6 +3,7 @@ import { supabase } from "../../../client.js";
 import { useEffect, useState } from "react";
 import Timer from '../../../assets/icons/timer.svg';
 import Calendar from '../../../assets/icons/calendar.svg';
+import {Link} from "react-router-dom";
 
 const BlogPage = () => {
   const [blogs, setBlogs] = useState([]);
@@ -78,7 +79,7 @@ const BlogPage = () => {
                     <h2 className="card-title">{title.length > 36 ? title.slice(0, 36) + '...' : title}</h2>
                     <p>{description.length > 59 ? description.slice(0, 60) + '...' : description}</p>
                     <div className="card-actions justify-end">
-                      <button className="btn btn-primary">Read More</button>
+                      <Link to={`/blogs/${id}`}><button className="btn btn-primary">Read More</button></Link>
                     </div>
                   </div>
                 </div>

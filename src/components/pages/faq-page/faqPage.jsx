@@ -15,7 +15,7 @@ const FaqPage = () => {
           <aside className={'py-3'}>
             Table of Contents
             <ul>
-              <li><a href="#general">General</a></li>
+              <li><a href="#general">Billing</a></li>
               <li><a href="#trusts-safety">Trusts & Safety</a></li>
               <li><a href="#services">Services</a></li>
               <li><a href="#billing">Billing</a></li>
@@ -23,6 +23,15 @@ const FaqPage = () => {
           </aside>
 
           <div className="container questions py-3">
+            <div id="assistance" className="collapse collapse-arrow ">
+              <input type="radio" name="my-accordion-2" />
+              <div className="collapse-title text-xl font-medium">
+                How can I get assistance with my purchase or any other inquiries?
+              </div>
+              <div className="collapse-content">
+                <p>If you need assistance with your purchase or have any questions, our dedicated customer support team is here to help. You can reach out to us through the contact page on our website, and we&apos;ll be happy to assist you promptly.</p>
+              </div>
+            </div>
             <div id="general" className="collapse collapse-arrow ">
               <input type="radio" name="my-accordion-2" defaultChecked />
               <div className="collapse-title text-xl font-medium">
@@ -67,15 +76,7 @@ const FaqPage = () => {
             </div>
             <hr/>
 
-            <div id="assistance" className="collapse collapse-arrow ">
-              <input type="radio" name="my-accordion-2" />
-              <div className="collapse-title text-xl font-medium">
-                How can I get assistance with my purchase or any other inquiries?
-              </div>
-              <div className="collapse-content">
-                <p>If you need assistance with your purchase or have any questions, our dedicated customer support team is here to help. You can reach out to us through the contact page on our website, and we&apos;ll be happy to assist you promptly.</p>
-              </div>
-            </div>
+
             <hr/>
 
           </div>
