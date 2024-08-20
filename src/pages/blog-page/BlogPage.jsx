@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
-import { supabase } from "../../../client.js";
+import { supabase } from "../../client.js";
 import { useEffect, useState } from "react";
-import Timer from '../../../assets/icons/timer.svg';
-import Calendar from '../../../assets/icons/calendar.svg';
+import Timer from '../../assets/icons/timer.svg';
+import Calendar from '../../assets/icons/calendar.svg';
 import {Link} from "react-router-dom";
 
 const BlogPage = () => {

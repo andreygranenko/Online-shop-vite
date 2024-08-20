@@ -30,43 +30,6 @@ function App() {
   }, []);
 
 
-  // const router = createBrowserRouter([
-  //   {
-  //     path: '/',
-  //     element: <Root/>,
-  //     errorElement: <ErrorPage/>,
-  //   },
-  //   {
-  //     path: '/produkti',
-  //     element: <ProductsPageRoute/>
-  //   },
-  //   {
-  //     path: '/login',
-  //     element: <SignInForm session={session} setSession={setSession}/>
-  //   },
-  //   {
-  //     path: '/register',
-  //     element: <SignUpForm/>
-  //   },
-  //   {
-  //     path: '/account',
-  //     element: <Homepage setSession={setSession} session={session}/>
-  //   },
-  //   {
-  //     path: '/blogs',
-  //     element: <BlogPage/>
-  //   },
-  //   {
-  //     path: 'faq',
-  //     element: <FaqPage/>
-  //   },
-  //   {
-  //     path: 'kontakti',
-  //     element: <ContactPage/>
-  //   }
-  // ]);
-
-
 
   return (
     <Provider store={store}>

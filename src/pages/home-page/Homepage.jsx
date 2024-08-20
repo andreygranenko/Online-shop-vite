@@ -1,7 +1,7 @@
 // eslint-disable-next-line react/prop-types
 import {Navigate} from "react-router-dom";
 import {useEffect, useState} from "react";
-import {supabase} from '../../../client.js';
+import {supabase} from '../../client.js';
 import {motion} from "framer-motion";
 import './homepage.sass';
 // eslint-disable-next-line react/prop-types

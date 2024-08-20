@@ -1,4 +1,4 @@
-import MainPage from "../components/pages/main-page/MainPage.jsx";
+import MainPage from "../pages/main-page/MainPage.jsx";
 
 const root = () => {
 

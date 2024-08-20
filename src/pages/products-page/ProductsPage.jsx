@@ -1,6 +1,6 @@
-import ProductsCategoriesList from "../../products-categories-list/ProductsCategoriesList.jsx";
-import ProductsFilters from "../../products-filters/ProductsFilters.jsx";
-import ProductsList from "../../products-list/ProductsList.jsx";
+import ProductsCategoriesList from "../../components/products-categories-list/ProductsCategoriesList.jsx";
+import ProductsFilters from "../../components/products-filters/ProductsFilters.jsx";
+import ProductsList from "../../components/products-list/ProductsList.jsx";
 import './products-page.sass'
 import {useState} from "react";
 import {motion} from "framer-motion";

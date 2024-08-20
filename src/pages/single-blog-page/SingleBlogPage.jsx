@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { supabase } from "../../../client.js";
+import { supabase } from "../../client.js";
 
 const SingleBlogPage = () => {
   const { blogId } = useParams();

@@ -16,7 +16,7 @@ const ProductsList = ({products, setProducts}) => {
       .from('product')
       .select()
     setProducts(data)
-    console.log("data:", data)
+    // console.log("data:", data)
   }
 
   if (!products) {
@@ -68,7 +68,7 @@ const ProductCard = ({ id, title, alt, price, img_url, discount}) => {
         </h2>
         <p>{price}$</p>
         <div className="card-actions justify-end">
-          <Link to={`categorijas/${title}`}><button className="btn btn-primary">Buy Now</button></Link>
+          <Link to={`/shop-cart`}><button className="btn btn-primary">Buy Now</button></Link>
         </div>
       </div>
     </div>

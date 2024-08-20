@@ -1,7 +1,7 @@
 import {motion} from "framer-motion";
-import LocationIcon from "../../../assets/icons/location-add.svg";
-import callIcon from "../../../assets/icons/call-incoming.svg";
-import smsIcon from "../../../assets/icons/sms.svg";
+import LocationIcon from "../../assets/icons/location-add.svg";
+import callIcon from "../../assets/icons/call-incoming.svg";
+import smsIcon from "../../assets/icons/sms.svg";
 import {useState} from "react";
 import emailjs from '@emailjs/browser';
 const ContactPage = () => {

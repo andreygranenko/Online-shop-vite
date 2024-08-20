@@ -1,7 +1,7 @@
-import MainExplore from "../../main-explore/MainExplore.jsx";
-import Categories from "../../categories/Categories.jsx";
+import MainExplore from "../../components/main-explore/MainExplore.jsx";
+import Categories from "../../components/categories/Categories.jsx";
 import {useEffect, useState} from "react";
-import {supabase} from "../../../client.js";
+import {supabase} from "../../client.js";
 
 const MainPage = () => {
 
@@ -13,11 +13,14 @@ const MainPage = () => {
       .from('product')
       .select()
     setProducts(data)
-    console.log("data:", data)
+
+    // console.log("data:", data)
   }
 
+
+
   useEffect(() => {
-    fetchProducts()
+    fetchProducts();
   }, []);
 
   return (

@@ -23,7 +23,7 @@ const Categories = () => {
       setCategoriesLoadingStatus('error')
     }
     setCategoriesLoadingStatus('success')
-    console.log("data:", data)
+    // console.log("data:", data)
   }
 
 
