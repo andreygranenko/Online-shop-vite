@@ -1,10 +1,12 @@
-import {Link} from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import './products-list.sass';
 import {useEffect, useState} from "react";
 import {supabase} from "../../client.js";
 
 // eslint-disable-next-line react/prop-types
 const ProductsList = ({products, setProducts}) => {
+
+
 
   useEffect(() => {
     // dispatch(fetchProducts());
@@ -50,6 +52,24 @@ const ProductsList = ({products, setProducts}) => {
 const ProductCard = ({ id, title, alt, price, img_url, discount}) => {
   const [loading, setLoading] = useState(true);
 
+  const navigate = useNavigate();
+  const handleAddToCart = async (id) => {
+
+    const { data, error } = await supabase
+      .from('shopping_cart')
+      .insert([
+        {
+          product_id: id,
+          // add a case for when the user is not logged in (finish)
+          user_id: JSON.parse(sessionStorage.getItem('token')).user.id
+        },
+      ])
+      .select()
+
+    navigate('/shop-cart');
+
+  }
+
 
   return (
     <div key={id} className="card card-compact w-60 bg-base-100 shadow-xl">
@@ -68,7 +88,7 @@ const ProductCard = ({ id, title, alt, price, img_url, discount}) => {
         </h2>
         <p>{price}$</p>
         <div className="card-actions justify-end">
-          <Link to={`/shop-cart`}><button className="btn btn-primary">Buy Now</button></Link>
+          <button onClick={() => handleAddToCart(id)}><button className="btn btn-primary">Add to cart</button></button>
         </div>
       </div>
     </div>
