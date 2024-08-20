@@ -2,7 +2,33 @@ import {motion} from "framer-motion";
 import LocationIcon from "../../../assets/icons/location-add.svg";
 import callIcon from "../../../assets/icons/call-incoming.svg";
 import smsIcon from "../../../assets/icons/sms.svg";
+import {useState} from "react";
+import emailjs from '@emailjs/browser';
 const ContactPage = () => {
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    emailjs.sendForm('contact_me', 'contact_me', e.target, '1OiJLxMax-YJXH7AS')
+      .then((result) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
+  }
+
   return (
     <>
       <motion.div
@@ -33,10 +59,32 @@ const ContactPage = () => {
             <h3 className={'text-center md:text-justify text-lg font-semibold'}>Message us</h3>
             <p className={'my-3'}>We&apos;re here to assist you every step of the way. Whether you have a question, need technical support, or simply want to share your feedback, our dedicated team is ready to listen and provide prompt assistance.</p>
           </div>
-          <form className={'flex-1 flex flex-col gap-5'}>
-            <input className={'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'} placeholder={'Your name'} type="text"/>
-            <input className={'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'} placeholder={'Email'}  type="email"/>
-            <textarea className={'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'} placeholder={'Message'} name="" id="" cols="30" rows="8"></textarea>
+          <form onSubmit={handleSubmit} className={'flex-1 flex flex-col gap-5'}>
+            <input
+              className={'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'}
+              placeholder={'Your name'}
+              onChange={handleChange}
+              type="text"
+              name={'name'}
+              value={formData.name}
+            />
+            <input
+              name={'email'}
+              className={'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'}
+              placeholder={'Email'}
+              onChange={handleChange}
+              type="email"
+              value={formData.email}
+            />
+            <textarea
+              className={'bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'}
+              placeholder={'Message'}
+              name="message"
+              id=""
+              cols="30"
+              onChange={handleChange}
+              value={formData.message}
+              rows="8"></textarea>
             <button className={'btn btn-primary'}>Submit</button>
           </form>
         </div>

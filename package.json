@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@egjs/react-flicking": "^4.11.2",
+    "@emailjs/browser": "^4.4.1",
     "@reduxjs/toolkit": "^2.2.1",
     "@supabase/auth-ui-react": "^0.4.7",
     "@supabase/auth-ui-shared": "^0.1.8",
