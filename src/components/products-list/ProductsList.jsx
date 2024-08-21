@@ -88,7 +88,7 @@ const ProductCard = ({ id, title, alt, price, img_url, discount}) => {
         </h2>
         <p>{price}$</p>
         <div className="card-actions justify-end">
-          <button onClick={() => handleAddToCart(id)}><button className="btn btn-primary">Add to cart</button></button>
+          <button className="btn btn-primary" onClick={() => handleAddToCart(id)}>Add to cart</button>
         </div>
       </div>
     </div>

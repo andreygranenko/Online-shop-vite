@@ -1,9 +1,11 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from "react-router-dom";
 import './nav-bar.sass';
 import {supabase} from "../../client.js";
 
 const NavBar = ({ session , setSession}) => {
+
+  const [avatar_url, setAvatarUrl] = useState(null);
 
   const onSignOut = async () => {
     const { error } = await supabase.auth.signOut()
@@ -13,6 +15,25 @@ const NavBar = ({ session , setSession}) => {
       console.error('Sign out error', error)
     }
   }
+
+  useEffect(() => {
+    const fetchProfile = async () => {
+      let {data: profiles, error} = await supabase
+        .from('profiles')
+        .select('avatar_url')
+        .eq('id', session.user.id)
+
+      if (error) {
+        console.error('Error fetching profile', error)
+        return
+      }
+      setAvatarUrl(profiles[0].avatar_url);
+    }
+
+    if (session) {
+      fetchProfile();
+    }
+  }, [session]);
 
   return (
     <>
@@ -56,7 +77,7 @@ const NavBar = ({ session , setSession}) => {
             <div className="dropdown dropdown-end">
               <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img alt="User Avatar" src={session.user?.user_metadata?.avatar_url || 'https://media.licdn.com/dms/image/D4D03AQHyO_c6pTEoCA/profile-displayphoto-shrink_800_800/0/1717090015911?e=1723075200&v=beta&t=gXDXrIhZ5__6pWzE7M6rjBHGNfWZo13alNPwxee39vs'} />
+                  <img alt="User Avatar" src={avatar_url ? avatar_url : 'https://media.licdn.com/dms/image/D4D03AQHyO_c6pTEoCA/profile-displayphoto-shrink_800_800/0/1717090015911?e=1723075200&v=beta&t=gXDXrIhZ5__6pWzE7M6rjBHGNfWZo13alNPwxee39vs'} />
                 </div>
               </div>
               <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
