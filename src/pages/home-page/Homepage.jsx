@@ -7,9 +7,9 @@ import './homepage.sass';
 // eslint-disable-next-line react/prop-types
 const Homepage = ({session, setSession}) => {
   const [loading, setLoading] = useState(true);
-  const [email, setEmail] = useState(null);
-  const [avatarUrl, setAvatarUrl] = useState(null);
   const [username, setUsername] = useState(null);
+  const [avatarUrl, setAvatarUrl] = useState(null);
+  const [fullName, setFullname] = useState(null);
   const [website, setWebsite] = useState(null);
 
   useEffect(() => {
@@ -31,9 +31,10 @@ const Homepage = ({session, setSession}) => {
         if (error) {
           console.warn(error);
         } else if (data) {
-          setEmail(data.username);
+          console.log(data);
+          setUsername(data.username);
           setAvatarUrl(data.avatar_url);
-          setUsername(data.full_name);
+          setFullname(data.full_name);
           setWebsite(data.website);
         }
       }
@@ -71,8 +72,10 @@ const Homepage = ({session, setSession}) => {
     const updates = {
       // eslint-disable-next-line react/prop-types
       id: user.id,
-      username: email,
-      full_name: username,
+      username: username,
+      full_name: fullName,
+      website: website,
+      avatar_url: avatarUrl,
       updated_at: new Date(),
     };
 
@@ -113,11 +116,11 @@ const Homepage = ({session, setSession}) => {
             <div className="info-container">
               <label htmlFor={'name'} className="label">Full name</label>
               <input
-                value={username ? username : ''}
+                value={fullName ? fullName : ''}
                 placeholder={'John Smitt'}
                 name={'name'}
                 type="text"
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => setFullname(e.target.value)}
                 className="info-container-inner"/>
             </div>
             <div className="info-container">
@@ -133,11 +136,11 @@ const Homepage = ({session, setSession}) => {
             <div className="info-container">
               <label htmlFor={'address'} className="label">username</label>
               <input
-                value={email ? email : ''}
+                value={username ? username : ''}
                 name={'address'}
                 placeholder={'test'}
                 type="text"
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setUsername(e.target.value)}
                 className="info-container-inner"/>
             </div>
             <div className="info-container">

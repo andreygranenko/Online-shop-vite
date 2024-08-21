@@ -21,6 +21,7 @@ const NavBar = ({ session , setSession}) => {
       let {data: profiles, error} = await supabase
         .from('profiles')
         .select('avatar_url')
+        // eslint-disable-next-line react/prop-types
         .eq('id', session.user.id)
 
       if (error) {
