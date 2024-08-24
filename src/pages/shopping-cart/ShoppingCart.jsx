@@ -1,10 +1,17 @@
 import Cart from '../../../public/cart-1.svg';
 import CartItems from "../../components/cart-items/CartItems.jsx";
 import { supabase } from "../../client.js";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import {useCart} from "../../components/cart-context/CartContext.jsx";
 
 const ShoppingCart = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const {cartItems, setCartItems} = useCart();
+  // const [cartItems, setCartItems] = useState([]);
+
+
+  const handleCheckout = async () => {
+
+  }
 
   const fetchCartItems = async () => {
     let { data: shopping_cart, error: cartError } = await supabase
@@ -68,7 +75,7 @@ const ShoppingCart = () => {
             }, 0)} €</div>
           </div>
 
-          <button className={'btn btn-primary w-full'}>Procced to checkout</button>
+          <button className={'btn btn-primary w-full'}>Proceed to checkout</button>
         </div>
       </div>
 
