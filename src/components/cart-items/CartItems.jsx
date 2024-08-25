@@ -1,36 +1,33 @@
 import {useEffect, useState} from "react";
-import {supabase} from '../../client.js';
-const CartItems = ({ cartItems }) => {
-  console.log('cart items', cartItems);
+const CartItems = ({ cartItems, cartItemsState, setCartItemsState }) => {
   return (
     <div className={'flex flex-col gap-5 '}>
       {cartItems.map((item) => (
-        <CartItem key={item.product_id} item={item} />
+        <CartItem key={item.product_id} cartItems={cartItemsState} setCartItems={setCartItemsState} item={item} />
       ))}
     </div>
   );
 }
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, cartItems, setCartItems }) => {
   const [count, setCount] = useState(item.count);
-  const [previousCount, setPreviousCount] = useState(item.count);
 
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      if (count !== previousCount) {
-        updateCartItemsOnServer(count);
-        console.log('updating cart items');
-      }
-    }, 500);
+    setCartItems((cartItems) =>
+      cartItems.map((cartItem) =>
+        cartItem.product_id !== item.product_id
+          ? cartItem
+          : { ...cartItem, count }
+      )
+    );
+  }, [count, setCartItems, item.product_id]);
 
-    return () => clearTimeout(timer)
-  }, [count]);
+
 
   const handleMinus = () => {
-    if (count > 1) {
+    if (count >= 1) {
       setCount(count => {
-        setPreviousCount(count)
         return count - 1;
       });
     }
@@ -38,69 +35,20 @@ const CartItem = ({ item }) => {
 
   const handlePlus = () => {
     setCount(count => {
-      setPreviousCount(count)
       return count + 1;
     });
   }
 
-  const updateCartItemsOnServer = async (newCount) => {
-    if (newCount > previousCount) {
-      console.log('bigger')
-      const newProductCart = [];
-      for (let i = 0; i < newCount - previousCount; i ++) {
-        const newProduct = {
-          product_id: item.product_id,
-          user_id: JSON.parse(sessionStorage.getItem('token')).user.id
-        };
-        console.log('new product', newProduct);
-        newProductCart.push(newProduct);
-      }
-
-
-      const { data, error } = await supabase
-        .from('shopping_cart')
-        .insert(newProductCart)
-        .select()
-
-      if (error) {
-        console.error(error);
-        return;
-      }
-
-    } else if (newCount < previousCount) {
-      console.log('smaller')
-
-      for (let i = 0; i < previousCount - newCount; i++) {
-          const { data, error } = await supabase
-            .from('shopping_cart')
-            .delete()
-            .eq('product_id', item.product_id)
-            .eq('user_id', JSON.parse(sessionStorage.getItem('token')).user.id)
-            .select()
-
-          if (error) {
-            console.error(error);
-            return;
-
-          }
-        }
-        }
-    else if (newCount === 0) {
-      const { error } = await supabase
-        .from('shopping_cart')
-        .delete()
-        .eq('product_id', 'item.product_id')
-        .eq('user_id', JSON.parse(sessionStorage.getItem('token')).user.id)
-
-      if (error) {
-        console.error(error);
-        return;
-      }
-    }
-  }
 
   const handleChange = (e) => {
-    setCount(parseInt(e.target.value, 10));
+    const newCount = parseInt(e.target.value, 10);
+    if (!isNaN(newCount) && newCount >= 1) {
+      setCount(newCount);
+    } else if (newCount < 1) {
+      setCount(1);
+    } else if (!e.target.value) {
+      setCount(1);
+    }
   }
 
   return (
