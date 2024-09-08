@@ -12,6 +12,7 @@ import React from "react";
 import {AnimatePresence} from "framer-motion";
 import SingleBlogPage from "../../pages/single-blog-page/SingleBlogPage.jsx";
 import ShoppingCart from "../../pages/shopping-cart/ShoppingCart.jsx";
+import Checkout from "../../pages/checkout/Checkout.jsx";
 
 // eslint-disable-next-line react/prop-types
 const AnimatedRoutes = ({session, setSession}) => {
@@ -29,6 +30,7 @@ const AnimatedRoutes = ({session, setSession}) => {
         <Route path="/faq" element={<FaqPage/>}/>
         <Route path="/kontakti" element={<ContactPage/>}/>
         <Route path={'/shop-cart'} element={<ShoppingCart/>}/>
+        <Route path={'/checkout'} element={<Checkout/>}/>
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </AnimatePresence>

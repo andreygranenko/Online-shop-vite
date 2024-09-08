@@ -1,15 +1,20 @@
 import {useEffect, useState} from "react";
-const CartItems = ({ cartItems, cartItemsState, setCartItemsState }) => {
+const CartItems = ({ cartItems, cartItemsState, setCartItemsState, setSaved }) => {
   return (
     <div className={'flex flex-col gap-5 '}>
       {cartItems.map((item) => (
-        <CartItem key={item.product_id} cartItems={cartItemsState} setCartItems={setCartItemsState} item={item} />
+        <CartItem
+          key={item.product_id}
+          cartItems={cartItemsState}
+          setCartItems={setCartItemsState}
+          setSaved={setSaved}
+          item={item} />
       ))}
     </div>
   );
 }
 
-const CartItem = ({ item, cartItems, setCartItems }) => {
+const CartItem = ({ item, setSaved, setCartItems }) => {
   const [count, setCount] = useState(item.count);
 
 
@@ -31,12 +36,14 @@ const CartItem = ({ item, cartItems, setCartItems }) => {
         return count - 1;
       });
     }
+    setSaved(false);
   }
 
   const handlePlus = () => {
     setCount(count => {
       return count + 1;
     });
+    setSaved(false);
   }
 
 
@@ -49,6 +56,7 @@ const CartItem = ({ item, cartItems, setCartItems }) => {
     } else if (!e.target.value) {
       setCount(1);
     }
+    setSaved(false);
   }
 
   return (

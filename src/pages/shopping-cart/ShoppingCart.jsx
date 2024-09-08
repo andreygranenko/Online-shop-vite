@@ -3,11 +3,15 @@ import CartItems from "../../components/cart-items/CartItems.jsx";
 import { supabase } from "../../client.js";
 import {useEffect, useState} from "react";
 import {useCart} from "../../components/cart-context/CartContext.jsx";
+import {useNavigate} from "react-router-dom";
 
 const ShoppingCart = () => {
   const {cartItems, setCartItems} = useCart();
   const [cartItemsState, setCartItemsState] = useState(cartItems);
   const [loading, setLoading] = useState(false);
+  const [saved, setSaved] = useState(true);
+  const navigate = useNavigate();
+
   useEffect(() => {
     setCartItemsState(cartItems);
   }, [cartItems]);
@@ -90,11 +94,12 @@ const ShoppingCart = () => {
 
     fetchCartItems().then(() => {
       setLoading(false);
+      setSaved(true);
     });
   }
 
   const handleCheckout = async () => {
-
+    navigate('/checkout');
   }
 
   const fetchCartItems = async () => {
@@ -143,7 +148,7 @@ const ShoppingCart = () => {
       </div>
       <div className={'flex gap-10 justify-between items-start'}>
         <div className={'w-[60%]'}>
-          <CartItems cartItemsState={cartItemsState} setCartItemsState={setCartItemsState} cartItems={cartItems}/>
+          <CartItems setSaved={setSaved} cartItemsState={cartItemsState} setCartItemsState={setCartItemsState} cartItems={cartItems}/>
           {loading ?
             <button className="btn btn-info w-44 mt-5 btn-square">
               <span className="loading loading-spinner"></span>
@@ -164,7 +169,14 @@ const ShoppingCart = () => {
             }, 0)} €</div>
           </div>
 
-          <button className={'btn btn-primary w-full'}>Proceed to checkout</button>
+
+          {saved ?
+            <button onClick={handleCheckout} className={'btn btn-primary w-full'}>Proceed to checkout</button>
+            :
+            <div className="tooltip tooltip-open tooltip-bottom w-full" data-tip="You did not save the product amount">
+              <button className={'btn-disabled btn btn-primary w-full'}>Proceed to checkout</button>
+            </div>
+          }
         </div>
       </div>
 
